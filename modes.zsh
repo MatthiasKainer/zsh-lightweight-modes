@@ -21,6 +21,8 @@ local config_jenv() {
     var="${(P)var}"
     if [ ! -z "$var" ]; then
         jenv shell "$var"
+    else 
+        jenv shell --unset 2> /dev/null
     fi
 }
 local config_nvm() {
@@ -28,6 +30,8 @@ local config_nvm() {
     var="${(P)var}"
     if [ ! -z "$var" ]; then
         nvm use "$var"
+    else
+        nvm use default 2> /dev/null
     fi
 }
 
