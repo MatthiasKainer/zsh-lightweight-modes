@@ -83,7 +83,17 @@ _mode() {
 orig_git=$(whereis git)
 local do_git() {
   config_git
-  eval "$orig_git $*"
+  whitespace="[[:space:]]"
+  args=()
+  for i in "$@"
+  do
+    if [[ $i =~ $whitespace ]]
+    then
+        i=\"$i\"
+    fi
+    args+=("$i")
+  done
+  eval $orig_git $args
 }
 
 prompt_currentMode() {
