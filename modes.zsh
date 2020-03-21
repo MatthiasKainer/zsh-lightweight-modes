@@ -16,6 +16,21 @@ local expand() {
   eval printf '%s' "\"\${$1?}\""
 }
 
+local config_jenv() {
+    local var="__ZSHMODES_${__ZSHMODES_CURRENT_MODE}_jenv_version"
+    var="${(P)var}"
+    if [ ! -z "$var" ]; then
+        jenv shell "$var"
+    fi
+}
+local config_nvm() {
+    local var="__ZSHMODES_${__ZSHMODES_CURRENT_MODE}_nvm_version"
+    var="${(P)var}"
+    if [ ! -z "$var" ]; then
+        nvm use "$var"
+    fi
+}
+
 local config_ssh() {
     ssh-add -D
     local var="__ZSHMODES_${__ZSHMODES_CURRENT_MODE}_ssh_file"
@@ -74,6 +89,8 @@ mode() {
     config_ssh
     config_git
     config_env
+    config_jenv
+    config_nvm
 }
 
 _mode() {
