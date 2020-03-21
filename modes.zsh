@@ -46,6 +46,8 @@ local config_ssh() {
 
 local config_git() {
     if [ -z "$__ZSHMODES_CURRENT_MODE" ]; then
+        git config --global --unset user.name
+        git config --global --unset user.email
         return
     fi
     local user="__ZSHMODES_${__ZSHMODES_CURRENT_MODE}_git_user_name"
