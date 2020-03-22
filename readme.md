@@ -1,5 +1,7 @@
 # ZSH Modes
 
+![Travis Badge](https://api.travis-ci.org/MatthiasKainer/zsh-lightweight-modes.svg?branch=master&v=1)
+
 Isolated ssh keys, git settings and env-variables in a single zsh session.
 
 ![Readme](readme/profile.gif)
