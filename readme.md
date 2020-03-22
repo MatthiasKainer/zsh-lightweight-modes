@@ -24,6 +24,8 @@ And reload you zsh. Now you can type `mode` and tab to see all modes you have av
 
 ## Adding a mode
 
+Check out [startup.feature](test/features/startup.feature) for a tested example on how to add your own empty module. See the other tests for examples on how to add certain configs, and how they behave.
+
 Open the directory where you installed the plugin, and add a new file into the `configs/` directory, with the extension `config`
 
 The format is similar to yaml (however it is not - see below), and looks like this:
