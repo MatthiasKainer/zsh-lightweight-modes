@@ -62,7 +62,7 @@ p10k:
 | **env.*** | A list of environment variables to set for this mode | [env.feature](test/features/env.feature) |
 | **ssh.file** | the location of the default ssh file to use in this mode | |
 | **jenv.version** | Sets the current jenv (java version) for this mode. `jenv` and the version have to be installed |
-| **nvm.version** | Sets the current nvm (node version) for this mode. `nvm` and the version have to be installed |
+| **nvm.version** | Sets the current nvm (node version) for this mode. `nvm` and the version have to be installed | [nvm.feature](test/features/nvm.feature) |
 | **p10k.prompt.icon** | If you use p10k, set this to have an icon in your prompt to see which mode you're in |
 | **p10k.prompt.text** | If you use p10k, set this to have text in your prompt to see which mode you're in |
 | **p10k.prompt.foregroundColor** | If you use p10k, set this to specify the foreground color (i.e. text) |
