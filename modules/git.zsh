@@ -8,11 +8,22 @@ local config_git() {
     user="${(P)user}"
     local email="__ZSHMODES_${__ZSHMODES_CURRENT_MODE}_git_user_email"
     email="${(P)email}"
-    git config --global user.name $user
-    git config --global user.email $email
+    if [ -z "$user" ]; then
+        git config --global --unset user.name
+    else
+        git config --global user.name $user
+    fi
+    if [ -z "$email" ]; then
+        git config --global --unset user.email
+    else
+        git config --global user.email $email
+    fi
 }
 
 orig_git=$(whereis git)
+if [[ $orig_git == "git:"* ]]; then
+    orig_git=$(echo $orig_git | awk '{ print $2; }')
+fi
 local do_git() {
   config_git
   whitespace="[[:space:]]"

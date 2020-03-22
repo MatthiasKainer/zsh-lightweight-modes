@@ -51,12 +51,12 @@ p10k:
     backgroundColor: white
 ```
 
-| config | value |
-| -- | -- |
-| **git.user.name** | Your committer-name in this mode |
-| **git.user.email** | The email for the committer |
-| **env.*** | A list of environment variables to set for this mode |
-| **ssh.file** | the location of the default ssh file to use in this mode |
+| config | value | specification |
+| -- | -- | -- |
+| **git.user.name** | Your committer-name in this mode | [git.feature](test/features/git.feature) |
+| **git.user.email** | The email for the committer | [git.feature](test/features/git.feature) |
+| **env.*** | A list of environment variables to set for this mode | [env.feature](test/features/env.feature) |
+| **ssh.file** | the location of the default ssh file to use in this mode | |
 | **jenv.version** | Sets the current jenv (java version) for this mode. `jenv` and the version have to be installed |
 | **nvm.version** | Sets the current nvm (node version) for this mode. `nvm` and the version have to be installed |
 | **p10k.prompt.icon** | If you use p10k, set this to have an icon in your prompt to see which mode you're in |
@@ -71,3 +71,7 @@ Note that this config supports only a subset of yaml at the moment. Fields have 
 ## Config p10k
 
 Add `currentMode` to your prompt elements, i.e. in your `.p10k.zsh` file.
+
+## Features/Tests
+
+Once you have cloned the repo, execute `./test.sh` to run the `cucumber` specifications in the `test/features` folder.
