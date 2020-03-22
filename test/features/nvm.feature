@@ -1,10 +1,6 @@
 Feature: A custom configuration that specifies an nvm environment
 
-  Background: With a minimal config
-    Given a file named "/opt/zsh-lightweight-modes/configs/minimal.config" with:
-    """
-
-    """
+  Background: With a config for nvm, and nvm set up
     And a file named "/opt/zsh-lightweight-modes/configs/nvm.config" with:
     """
     nvm:
@@ -39,7 +35,7 @@ Scenario: Switching to the custom mode with the nvm should set the specified var
     When I run the following commands with `zsh`:
     """
     source ~/.zshrc
-    mode git
+    mode nvm
     mode minimal
     nvm ls
     """

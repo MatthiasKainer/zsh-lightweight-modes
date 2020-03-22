@@ -1,10 +1,6 @@
 Feature: A custom configuration that specifies a git environment
 
-  Background: With a minimal config
-    Given a file named "/opt/zsh-lightweight-modes/configs/minimal.config" with:
-    """
-
-    """
+  Background: With a config that uses git
     And a file named "/opt/zsh-lightweight-modes/configs/git.config" with:
     """
     git:
@@ -14,9 +10,7 @@ Feature: A custom configuration that specifies a git environment
 
     """
 
-Scenario: 
-    Switching to the custom mode with the git 
-    should set the specified variables
+Scenario: Switching to the custom mode with the git should set the specified variables
     When I run the following commands with `zsh`:
     """
     source ~/.zshrc
@@ -28,9 +22,7 @@ Scenario:
     Then the stdout should contain "example.email.for.test@example.com"
     And the stderr should not contain anything
 
-  Scenario: 
-    Switching to the custom mode with the git config and back
-    to another should clear all the specified settings
+  Scenario: Switching to the custom mode with the git config and back to another should clear all the specified settings
     When I run the following commands with `zsh`:
     """
     source ~/.zshrc

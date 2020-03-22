@@ -1,10 +1,6 @@
 Feature: A custom configuration that sets an environment variable
 
-  Background: With a minimal config
-    Given a file named "/opt/zsh-lightweight-modes/configs/minimal.config" with:
-    """
-
-    """
+  Background: With a config for the env
     And a file named "/opt/zsh-lightweight-modes/configs/env.config" with:
     """
     env: 
@@ -12,9 +8,7 @@ Feature: A custom configuration that sets an environment variable
 
     """
 
-  Scenario: 
-    Switching to the custom mode with the environment variable
-    should set the specified variables
+  Scenario: Switching to the custom mode with the environment variable should set the specified variables
     When I run the following commands with `zsh`:
     """
     source ~/.zshrc
@@ -24,9 +18,7 @@ Feature: A custom configuration that sets an environment variable
     Then the stdout should contain "var_for_testing='env variable set for testing'"
     And the stderr should not contain anything
 
-  Scenario: 
-    Switching to the custom mode with the environment variable and back
-    to another should clear all the specified variables
+  Scenario: Switching to the custom mode with the environment variable and back to another should clear all the specified variables
     When I run the following commands with `zsh`:
     """
     source ~/.zshrc
