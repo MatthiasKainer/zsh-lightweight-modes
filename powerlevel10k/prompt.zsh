@@ -15,3 +15,13 @@ prompt_currentMode() {
     fi
     p10k segment -i $icon -t "$text" -f "$foregroundColor" -b "$backgroundColor"
 }
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
+    # =========================[ Line #1 ]=========================
+    currentMode
+    dir                     # current directory
+    vcs                     # git status
+    # =========================[ Line #2 ]=========================
+    newline                 # \n
+    # prompt_char           # prompt symbol
+  )

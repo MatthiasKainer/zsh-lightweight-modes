@@ -1,2 +1,4 @@
 configs/*.config
 !configs/quick.config
+
+.DS_Store

@@ -62,5 +62,3 @@ _mode() {
 }
 
 compdef _mode mode
-
-source "$BASEDIR/powerlevel10k/prompt.zsh"

@@ -27,16 +27,21 @@ fi
 local do_git() {
   config_git
   whitespace="[[:space:]]"
-  args=()
-  for i in "$@"
-  do
-    if [[ $i =~ $whitespace ]]
-    then
-        i=\"$i\"
-    fi
-    args+=("$i")
-  done
-  eval $orig_git $args
+  if [[ "$($orig_git config user.name)" = "" ]]; then
+    echo "git disabled, no user configured. Change to a mode with a git user first"
+    (exit 1)
+  else
+    args=()
+    for i in "$@"
+    do
+        if [[ $i =~ $whitespace ]]
+        then
+            i=\"$i\"
+        fi
+        args+=("$i")
+    done
+    eval $orig_git $args
+  fi
 }
 
 alias git='do_git'
