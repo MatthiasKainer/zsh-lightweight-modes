@@ -38,6 +38,10 @@ mode() {
         done
         return 0
     fi
+    if [[ "" == "$1" ]]; then
+        printModes
+        return 0
+    fi
 
     if [[ ! " ${__ZSHMODES[@]} " =~ " $1 " ]]; then
         echo "mode not found"
