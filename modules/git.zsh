@@ -21,7 +21,9 @@ local config_git() {
 }
 
 orig_git=$(whereis git)
-if [[ $orig_git == "git:"* ]]; then
+if [ -e /usr/local/bin/git ]; then
+    orig_git="/usr/local/bin/git"
+elif [[ $orig_git == "git:"* ]]; then
     orig_git=$(echo $orig_git | awk '{ print $2; }')
 fi
 local do_git() {
@@ -42,6 +44,10 @@ local do_git() {
     done
     eval $orig_git $args
   fi
+}
+
+whereis_git() {
+    echo "$orig_git"
 }
 
 alias git='do_git'
